@@ -13,20 +13,20 @@ const HeroNav = ({ setCategory, setAlcoholic }) => {
   return (
     <div className="HeroNav">
       <ul className="types">
-        {/* <li onClick={onHandleAlcoholic(() => "Alcoholic")}>
+        <li onClick={() => onHandleAlcoholic("Alcoholic")}>
           <img
             src="https://img.icons8.com/ios-glyphs/512/cocktail.png"
             alt="type Alcoholic"
           />
           Alcoholic
         </li>
-        <li onClick={onHandleAlcoholic(() => "Non alcoholic")}>
+        <li onClick={() => onHandleAlcoholic("Non alcoholic")}>
           <img
             src="https://img.icons8.com/fluency/512/cocktail.png"
             alt="type Alcohol free"
           />
           Alcohol free
-        </li> */}
+        </li>
       </ul>
       <hr />
       <ul className="categories">
