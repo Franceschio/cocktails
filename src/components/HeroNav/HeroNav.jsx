@@ -1,7 +1,7 @@
 import "./index.scss";
 
 const HeroNav = ({ setCategory }) => {
-  const onHandleClick = () => {
+  const onHandleClick = (value) => {
     setCategory(value);
   };
   return (
@@ -35,6 +35,15 @@ const HeroNav = ({ setCategory }) => {
           />
           Dessert
         </li>
+      </ul>
+      <hr />
+      <ul className="categories">
+        <li onClick={() => onHandleClick("Ordinary Drink")}>Ordinary Drink</li>
+        <li onClick={() => onHandleClick("Cocktail")}>Cocktail</li>
+        <li onClick={() => onHandleClick("Shot")}>Shot</li>
+        <li onClick={() => onHandleClick("Punch / Party Drink")}>Punch</li>
+        <li onClick={() => onHandleClick("Coffee / Tea")}>Coffee</li>
+        <li onClick={() => onHandleClick("Other / Unknown")}>Other</li>
       </ul>
     </div>
   );

@@ -10,6 +10,8 @@ import { useEffect, useState } from "react";
 function App() {
   const [cocktailsList, setCocktailsList] = useState([]);
 
+  const [category, setCategory] = useState("Ordinary Drink");
+
   useEffect(() => {
     GET(`/search.php?f=m`).then((data) => setCocktailsList(() => data.drinks));
   }, []);
@@ -17,8 +19,8 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <HeroNav />
-      <MainList cocktailsList={cocktailsList} />
+      <HeroNav setCategory={setCategory} />
+      <MainList cocktailsList={cocktailsList} category={category} />
     </div>
   );
 }
