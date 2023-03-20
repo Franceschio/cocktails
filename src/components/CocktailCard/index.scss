@@ -1,0 +1,40 @@
+.CocktailCard {
+  height: 250px;
+  width: 200px;
+  background-color: white;
+  position: relative;
+  text-align: center;
+  margin-bottom: 80px;
+  box-shadow: 3px 3px 5px rgba(255, 255, 255, 0.4);
+
+  img {
+    height: 50%;
+    object-fit: contain;
+    padding: 5px;
+  }
+}
+
+.cocktailInformations {
+  position: absolute;
+  width: 80%;
+  top: 80%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 1px solid black;
+  background-color: rgb(255, 251, 229);
+  box-shadow: 4px 4px 5px #717171;
+  text-align: center;
+  border: 10px;
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    padding: 0px 10px 0px 0px;
+  }
+
+  li {
+    width: 80%;
+    border-bottom: 1px solid grey;
+    align-self: flex-end;
+  }
+}
