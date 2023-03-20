@@ -12,6 +12,7 @@ const HeroNav = ({ setCategory, setAlcoholic }) => {
 
   return (
     <div className="HeroNav">
+      <h1>Iceberg lounge</h1>
       <ul className="types">
         <li onClick={() => onHandleAlcoholic("Alcoholic")}>
           <img
@@ -25,7 +26,7 @@ const HeroNav = ({ setCategory, setAlcoholic }) => {
             src="https://img.icons8.com/fluency/512/cocktail.png"
             alt="type Alcohol free"
           />
-          Alcohol free
+          Unalcoholic
         </li>
       </ul>
       <hr />

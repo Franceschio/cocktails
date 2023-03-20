@@ -5,6 +5,7 @@ import GET from "./utils/http";
 import Navbar from "./components/Navbar/Navbar";
 import HeroNav from "./components/HeroNav/HeroNav";
 import MainList from "./components/MainList";
+import Footer from "./components/Footer/Footer";
 import { useEffect, useState } from "react";
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
         category={category}
         alcoholic={alcoholic}
       />
+      <Footer />
     </div>
   );
 }
