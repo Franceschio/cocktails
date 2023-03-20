@@ -14,15 +14,13 @@ function App() {
 
   const [alcoholic, setAlcoholic] = useState("Alcoholic");
 
-  const [darkMode, setDarkMode] = useState(false);
-
   useEffect(() => {
     GET(`/search.php?f=m`).then((data) => setCocktailsList(() => data.drinks));
   }, []);
 
   return (
     <div className="App">
-      <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
+      <Navbar />
       <HeroNav setCategory={setCategory} setAlcoholic={setAlcoholic} />
       <MainList
         cocktailsList={cocktailsList}
