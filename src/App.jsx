@@ -20,13 +20,23 @@ function App() {
 
   const [infoVisible, setInfoVisible] = useState(false);
 
+  const [alphabetTable, setAlphabetTable] = useState(false);
+
+  const [selectedLetter, setSelectedLetter] = useState("a");
+
   useEffect(() => {
-    GET(`/search.php?f=m`).then((data) => setCocktailsList(() => data.drinks));
-  }, []);
+    GET(`/search.php?f=${selectedLetter}`).then((data) =>
+      setCocktailsList(() => data.drinks)
+    );
+  }, [selectedLetter]);
 
   return (
     <div className="App">
-      <Navbar />
+      <Navbar
+        alphabetTable={alphabetTable}
+        setAlphabetTable={setAlphabetTable}
+        setSelectedLetter={setSelectedLetter}
+      />
       <HeroNav setCategory={setCategory} setAlcoholic={setAlcoholic} />
       <MainList
         cocktailsList={cocktailsList}
