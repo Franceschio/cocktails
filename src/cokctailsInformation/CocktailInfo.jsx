@@ -1,21 +1,18 @@
 import "./index.scss";
 
-const CocktailCard = ({ cocktailData, setCocktailInfo, setInfoVisible }) => {
-  const setInfo = () => {
-    setCocktailInfo(() => cocktailData);
-    setInfoVisible((prev) => !prev);
+const CocktailInfo = ({ cocktailData, infoVisible, setInfoVisible }) => {
+  const closeInformations = () => {
+    setInfoVisible(false);
   };
-
   return (
-    <div className="CocktailCard">
-      <img
-        src={cocktailData.strDrinkThumb}
-        alt="CardImage"
-        className="CardImage"
-      />
-      <h3 onClick={setInfo}>{cocktailData.strDrink}</h3>
-      <div className="cocktailInformations">
-        <ul className="ingredients">
+    <div className={`CocktailInfo ${infoVisible && "active"}`}>
+      <div className="infoImage">
+        <img src={cocktailData.strDrinkThumb} alt="Info image" />
+      </div>
+      <div className="actualInfo">
+        <h1 className="cocktailName">{cocktailData.strDrink}</h1>
+        <h3>Ingredients:</h3>
+        <ul>
           <li>{cocktailData.strIngredient1}</li>
           <li>{cocktailData.strIngredient2}</li>
           {cocktailData.strIngredient3 ? (
@@ -37,9 +34,14 @@ const CocktailCard = ({ cocktailData, setCocktailInfo, setInfoVisible }) => {
             <li>{cocktailData.strIngredient8}</li>
           ) : null}
         </ul>
+        <h3>Preparation:</h3>
+        <p>{cocktailData.strInstructionsIT}</p>
+      </div>
+      <div className="closeInfo" onClick={closeInformations}>
+        X
       </div>
     </div>
   );
 };
 
-export default CocktailCard;
+export default CocktailInfo;

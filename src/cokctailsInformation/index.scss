@@ -1,0 +1,78 @@
+@import "../Styles/variables";
+@import "../Styles/mixins";
+
+.CocktailInfo {
+  width: 105vw;
+  height: 70vh;
+  background-color: $cases-color;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 2;
+  border-top: 2px solid $primary-color;
+  padding: 15px;
+  @include flex-box($direction: column, $justify: flex-start);
+  overflow-y: scroll;
+  transition: 0.4s;
+  transform: translateY(100%);
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .infoImage {
+    height: 40%;
+    img {
+      @include fit-image;
+    }
+  }
+
+  .actualInfo {
+    @include flex-box($direction: column, $justify: flex-start, $gap: 10px);
+
+    .cocktailName {
+      color: $primary-color;
+      border-bottom: 1px solid $primary-box-shadow;
+      width: 80%;
+      text-align: center;
+    }
+
+    ul {
+      @include flex-box($direction: column, $gap: 10px, $wrap: wrap);
+    }
+
+    li {
+      border-bottom: 1px solid $primary-box-shadow;
+    }
+
+    p {
+      text-align: center;
+    }
+  }
+
+  .closeInfo {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    color: $primary-color;
+    transition: 0.4s;
+
+    &:hover {
+      color: red;
+    }
+  }
+}
+
+.active {
+  transform: translate(0px);
+}
+
+@media screen and (min-width: 768px) {
+  .CocktailInfo {
+    height: 80vh;
+    width: 50vw;
+    border: 2px solid $primary-color;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

@@ -4,5 +4,5 @@
   position: relative;
   min-height: 100vh;
   min-width: 100vw;
-  padding-bottom: $footer-length;
+  padding-bottom: calc($footer-length + 70px);
 }

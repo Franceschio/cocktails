@@ -7,13 +7,18 @@
   background-color: $secondary-color;
   position: relative;
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   box-shadow: 3px 3px 5px $secondary-box-shadow;
 
   img {
     @include fit-image($height: 50%, $width: auto);
     padding: 8px;
     background-color: $cases-color;
+  }
+
+  h3 {
+    cursor: pointer;
+    text-decoration: underline;
   }
 }
 
