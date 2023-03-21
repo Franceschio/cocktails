@@ -27,7 +27,7 @@ const MainList = ({
         ))
       ) : (
         <h3 className="notFoundMsg">
-          sembrerebbe che non siano presenti cocktail di questa categoria in
+          sembrerebbe che non siano presenti prodotti di questa categoria in
           questo momento.
         </h3>
       )}

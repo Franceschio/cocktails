@@ -5,6 +5,7 @@
   @include flex-box($justify: space-around, $gap: 80px, $wrap: wrap);
   padding: 10px;
   width: 105%;
+  min-height: 100%;
 
   .notFoundMsg {
     text-align: center;
