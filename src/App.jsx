@@ -16,7 +16,7 @@ function App() {
 
   const [alcoholic, setAlcoholic] = useState("Alcoholic");
 
-  const [cocktailInfo, setCocktailInfo] = useState(null);
+  const [cocktailInfo, setCocktailInfo] = useState({});
 
   const [infoVisible, setInfoVisible] = useState(false);
 

@@ -3,7 +3,7 @@ import "./index.scss";
 const CocktailCard = ({ cocktailData, setCocktailInfo, setInfoVisible }) => {
   const setInfo = () => {
     setCocktailInfo(() => cocktailData);
-    setInfoVisible((prev) => !prev);
+    setInfoVisible(() => true);
   };
 
   return (
