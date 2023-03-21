@@ -1,9 +1,17 @@
 @import "../../Styles/mixins";
+@import "../../Styles/variables";
 
 .MainList {
   @include flex-box($justify: space-around, $gap: 80px, $wrap: wrap);
   padding: 10px;
   width: 105%;
+
+  .notFoundMsg {
+    text-align: center;
+    align-self: center;
+    justify-self: center;
+    color: $secondary-color;
+  }
 }
 
 @media screen and (min-width: 770px) {

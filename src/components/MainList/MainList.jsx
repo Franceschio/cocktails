@@ -1,6 +1,7 @@
 import "./index.scss";
 
 import CocktailCard from "../CocktailCard";
+import { useState } from "react";
 
 const MainList = ({
   cocktailsList,
@@ -9,19 +10,30 @@ const MainList = ({
   setCocktailInfo,
   setInfoVisible,
 }) => {
+  const filteredCocktails = cocktailsList
+    .filter((cocktail) => cocktail.strAlcoholic === alcoholic)
+    .filter((cocktail) => cocktail.strCategory === category);
+
   return (
     <div className="MainList">
-      {cocktailsList
-        .filter((cocktail) => cocktail.strAlcoholic === alcoholic)
-        .filter((cocktail) => cocktail.strCategory === category)
-        .map((cocktail) => (
-          <CocktailCard
-            cocktailData={cocktail}
-            setCocktailInfo={setCocktailInfo}
-            setInfoVisible={setInfoVisible}
-            key={cocktail.idDrink}
-          />
-        ))}
+      {filteredCocktails.length > 0 ? (
+        cocktailsList
+          .filter((cocktail) => cocktail.strAlcoholic === alcoholic)
+          .filter((cocktail) => cocktail.strCategory === category)
+          .map((cocktail) => (
+            <CocktailCard
+              cocktailData={cocktail}
+              setCocktailInfo={setCocktailInfo}
+              setInfoVisible={setInfoVisible}
+              key={cocktail.idDrink}
+            />
+          ))
+      ) : (
+        <h3 classname="notFoundMsg">
+          sembrerebbe che non siano presenti cocktail di questa categoria in
+          questo momento.
+        </h3>
+      )}
     </div>
   );
 };

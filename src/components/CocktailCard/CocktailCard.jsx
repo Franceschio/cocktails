@@ -12,6 +12,7 @@ const CocktailCard = ({ cocktailData, setCocktailInfo, setInfoVisible }) => {
         src={cocktailData.strDrinkThumb}
         alt="CardImage"
         className="CardImage"
+        onClick={setInfo}
       />
       <h3 onClick={setInfo}>{cocktailData.strDrink}</h3>
       <div className="cocktailInformations">

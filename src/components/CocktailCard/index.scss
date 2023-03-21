@@ -9,11 +9,14 @@
   text-align: center;
   margin-bottom: 20px;
   box-shadow: 3px 3px 5px $secondary-box-shadow;
+  border: 1px solid $primary-color;
+  color: $primary-color;
 
   img {
     @include fit-image($height: 50%, $width: auto);
     padding: 8px;
     background-color: $cases-color;
+    cursor: pointer;
   }
 
   h3 {
