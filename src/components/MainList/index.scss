@@ -5,4 +5,11 @@
   align-items: center;
   gap: 80px;
   padding: 10px;
+  width: 105%;
+}
+
+@media screen and (min-width: 770px) {
+  .MainList {
+    width: 100%;
+  }
 }

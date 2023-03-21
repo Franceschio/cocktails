@@ -1,17 +1,19 @@
+@import "../../Styles/variables";
+
 .CocktailCard {
   height: 250px;
   width: 200px;
-  background-color: white;
+  background-color: $secondary-color;
   position: relative;
   text-align: center;
   margin-bottom: 50px;
-  box-shadow: 3px 3px 5px rgba(255, 255, 255, 0.4);
+  box-shadow: 3px 3px 5px $secondary-box-shadow;
 
   img {
     height: 50%;
     object-fit: contain;
     padding: 5px;
-    background-color: #f4f9af;
+    background-color: $cases-color;
   }
 }
 
@@ -21,21 +23,27 @@
   top: 80%;
   left: 50%;
   transform: translateX(-50%);
-  border: 1px solid black;
-  background-color: rgb(255, 251, 229);
-  box-shadow: 4px 4px 5px #717171;
+  border: none;
+  background-color: $cases-color;
+  box-shadow: 4px 4px 5px $primary-box-shadow;
   text-align: center;
-  border: 10px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 
   ul {
     display: flex;
     flex-direction: column;
-    padding: 0px 10px 0px 0px;
+    gap: 2px;
+    width: 100%;
+    padding: 0px 15px 0px 0px;
+    font-size: 14px;
   }
 
   li {
     width: 80%;
-    border-bottom: 1px solid grey;
+    border-bottom: 1px solid $primary-box-shadow;
     align-self: flex-end;
   }
 }
