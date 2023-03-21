@@ -17,19 +17,16 @@ const MainList = ({
   return (
     <div className="MainList">
       {filteredCocktails.length > 0 ? (
-        cocktailsList
-          .filter((cocktail) => cocktail.strAlcoholic === alcoholic)
-          .filter((cocktail) => cocktail.strCategory === category)
-          .map((cocktail) => (
-            <CocktailCard
-              cocktailData={cocktail}
-              setCocktailInfo={setCocktailInfo}
-              setInfoVisible={setInfoVisible}
-              key={cocktail.idDrink}
-            />
-          ))
+        filteredCocktails.map((cocktail) => (
+          <CocktailCard
+            cocktailData={cocktail}
+            setCocktailInfo={setCocktailInfo}
+            setInfoVisible={setInfoVisible}
+            key={cocktail.idDrink}
+          />
+        ))
       ) : (
-        <h3 classname="notFoundMsg">
+        <h3 className="notFoundMsg">
           sembrerebbe che non siano presenti cocktail di questa categoria in
           questo momento.
         </h3>
