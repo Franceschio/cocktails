@@ -1,21 +1,24 @@
 @import "../../Styles/variables";
+@import "../../Styles/mixins";
 
 .HeroNav {
+  @include flex-box($direction: column);
   margin-top: 25px;
   color: $secondary-color;
   width: 105%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   padding: 10px;
   background-color: $secondary-color;
   color: $primary-color;
 
   h1 {
     font-family: cursive;
+    @include general-color(170deg);
+    background-clip: inherit;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     color: rgb(132, 76, 254);
-    margin: 25px 0px 0px 0px;
+    margin: 20px 0px 0px 0px;
+    user-select: none;
   }
 
   hr {
@@ -26,9 +29,7 @@
 
   .types {
     list-style: none;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+    @include flex-box($justify: space-around);
     width: 100%;
     font-size: 10px;
     padding: 10px;
@@ -41,10 +42,7 @@
       color: $primary-color;
       height: 40px;
       width: 40px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      @include flex-box($direction: column);
       cursor: pointer;
       transition: 0.4s;
       border-radius: 4px;
@@ -56,17 +54,13 @@
     }
 
     img {
-      height: 30px;
-      width: 30px;
+      @include fit-image;
     }
   }
 
   .categories {
     list-style: none;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    gap: 10px;
+    @include flex-box($justify: space-around, $gap: 10px);
     width: 100%;
     font-size: 12px;
     padding: 10px;
@@ -79,10 +73,7 @@
       color: $primary-color;
       height: 40px;
       width: 40px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      @include flex-box($direction: column);
       cursor: pointer;
       transition: 0.4s;
       border-radius: 4px;
@@ -93,10 +84,14 @@
       }
     }
   }
-  @media screen and (min-width: 768px) {
-    .HeroNav {
-      margin-top: 80px;
-      padding: 20px;
+}
+@media screen and (min-width: 768px) {
+  .HeroNav {
+    margin-top: 50px;
+    padding: 20px;
+
+    h1 {
+      font-size: 50px;
     }
 
     .types {

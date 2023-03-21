@@ -1,4 +1,5 @@
 @import "../../Styles/variables";
+@import "../../Styles/mixins";
 
 .CocktailCard {
   height: 250px;
@@ -10,9 +11,8 @@
   box-shadow: 3px 3px 5px $secondary-box-shadow;
 
   img {
-    height: 50%;
-    object-fit: contain;
-    padding: 5px;
+    @include fit-image($height: 50%, $width: auto);
+    padding: 8px;
     background-color: $cases-color;
   }
 }
@@ -28,14 +28,10 @@
   box-shadow: 4px 4px 5px $primary-box-shadow;
   text-align: center;
   padding: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
+  @include flex-box($justify: flex-start);
 
   ul {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
+    @include flex-box($direction: column, $gap: 2px);
     width: 100%;
     padding: 0px 15px 0px 0px;
     font-size: 14px;

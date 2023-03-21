@@ -1,9 +1,7 @@
+@import "../../Styles/mixins";
+
 .MainList {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: center;
-  gap: 80px;
+  @include flex-box($justify: space-around, $gap: 80px, $wrap: wrap);
   padding: 10px;
   width: 105%;
 }

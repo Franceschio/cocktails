@@ -1,10 +1,9 @@
 @import "../../Styles/variables";
+@import "../../Styles/mixins";
 
 .Navbar {
   width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  @include flex-box($justify: space-between);
   padding: 6px;
   font-size: 14px;
   position: fixed;
@@ -26,10 +25,7 @@
 
   ul {
     list-style: none;
-    display: flex;
-    gap: 10px;
-    margin: 0;
-    padding: 0;
+    @include flex-box($gap: 10px);
   }
 
   .logo {
@@ -39,9 +35,7 @@
   }
 
   img {
-    height: 100%;
-    width: 100%;
-    object-fit: contain;
+    @include fit-image;
   }
 }
 
