@@ -9,10 +9,18 @@ const MainList = ({
   alcoholic,
   setCocktailInfo,
   setInfoVisible,
+  searched,
 }) => {
-  const filteredCocktails = cocktailsList
-    .filter((cocktail) => cocktail.strAlcoholic === alcoholic)
-    .filter((cocktail) => cocktail.strCategory === category);
+  const filteredCocktails = !searched
+    ? cocktailsList
+        .filter((cocktail) => cocktail.strAlcoholic === alcoholic)
+        .filter((cocktail) => cocktail.strCategory === category)
+    : cocktailsList
+        .filter((cocktail) => cocktail.strAlcoholic === alcoholic)
+        .filter((cocktail) => cocktail.strCategory === category)
+        .filter((cocktail) =>
+          cocktail.strDrink.toLowerCase().includes(searched)
+        );
 
   return (
     <div className={styles.MainList}>

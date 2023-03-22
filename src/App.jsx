@@ -24,6 +24,8 @@ function App() {
 
   const [selectedLetter, setSelectedLetter] = useState("a");
 
+  const [searched, setSearched] = useState(null);
+
   useEffect(() => {
     GET(`/search.php?f=${selectedLetter}`).then((data) =>
       setCocktailsList(() => data.drinks)
@@ -36,6 +38,7 @@ function App() {
         alphabetTable={alphabetTable}
         setAlphabetTable={setAlphabetTable}
         setSelectedLetter={setSelectedLetter}
+        setSearched={setSearched}
       />
       <HeroNav setCategory={setCategory} setAlcoholic={setAlcoholic} />
       <MainList
@@ -44,6 +47,7 @@ function App() {
         alcoholic={alcoholic}
         setCocktailInfo={setCocktailInfo}
         setInfoVisible={setInfoVisible}
+        searched={searched}
       />
       <Footer />
       <CocktailInfo

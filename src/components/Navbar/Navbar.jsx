@@ -1,8 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./index.module.scss";
 import { alphabet } from "../../utils/Funcs&Variables/funcs&variables";
 
-const Navbar = ({ alphabetTable, setAlphabetTable, setSelectedLetter }) => {
+const Navbar = ({
+  alphabetTable,
+  setAlphabetTable,
+  setSelectedLetter,
+  setSearched,
+}) => {
   const refresh = () => {
     location.reload();
   };
@@ -14,10 +19,16 @@ const Navbar = ({ alphabetTable, setAlphabetTable, setSelectedLetter }) => {
   const newLetter = (letter) => {
     setSelectedLetter(() => letter);
     setAlphabetTable((prev) => !prev);
+    setSearched(null);
   };
 
   const changeInputValue = (e) => {
     setInputValue(() => e.target.value);
+  };
+
+  const search = (e) => {
+    e.preventDefault();
+    setSearched(inputValue);
   };
 
   const [inputValue, setInputValue] = useState("");
@@ -26,6 +37,10 @@ const Navbar = ({ alphabetTable, setAlphabetTable, setSelectedLetter }) => {
 
   const setSearch = () => setSearchActive((prev) => !prev);
 
+  useEffect(() => {
+    inputValue === "" ? setSearched(null) : null;
+  }, [inputValue]);
+
   return (
     <div className={styles.Navbar}>
       <div
@@ -33,7 +48,7 @@ const Navbar = ({ alphabetTable, setAlphabetTable, setSelectedLetter }) => {
           isSearchActive && styles.searchActive
         }`}
       >
-        <form className={styles.searchBar}>
+        <form onSubmit={search} className={styles.searchBar}>
           <input
             className={styles.search}
             type="text"
@@ -84,7 +99,7 @@ const Navbar = ({ alphabetTable, setAlphabetTable, setSelectedLetter }) => {
           />
         </li>
       </ul>
-      <form className={styles.searchBar}>
+      <form onSubmit={search} className={styles.searchBar}>
         <input
           className={styles.search}
           type="text"
