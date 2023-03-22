@@ -13,6 +13,7 @@ const Navbar = ({ alphabetTable, setAlphabetTable, setSelectedLetter }) => {
 
   const newLetter = (letter) => {
     setSelectedLetter(() => letter);
+    setAlphabetTable((prev) => !prev);
   };
 
   const changeInputValue = (e) => {

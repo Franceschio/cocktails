@@ -61,7 +61,7 @@
 
   .categories {
     list-style: none;
-    @include flex-box($justify: space-around, $gap: 10px);
+    @include flex-box($justify: space-evenly, $gap: 20px);
     width: 100%;
     font-size: 12px;
     padding: 10px;
@@ -78,11 +78,9 @@
       cursor: pointer;
       transition: 0.4s;
       border-radius: 4px;
-      padding: 50px;
 
       &:hover {
         text-decoration: underline;
-        background-color: $cases-color;
       }
     }
   }
