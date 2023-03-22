@@ -46,7 +46,13 @@ const Navbar = ({ alphabetTable, setAlphabetTable, setSelectedLetter }) => {
         <a href="#">
           <li>About</li>
         </a>
-        <li onClick={activateAlphabet}>Set letter</li>
+        <li onClick={activateAlphabet}>
+          set
+          <img
+            src="https://img.icons8.com/nolan/512/abc.png"
+            alt="imgAlphabet"
+          />
+        </li>
       </ul>
       <form className={styles.searchBar}>
         <input className={styles.search} type="text" placeholder="Search..." />

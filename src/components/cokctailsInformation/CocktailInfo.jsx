@@ -8,6 +8,8 @@ const CocktailInfo = ({ cocktailData, infoVisible, setInfoVisible }) => {
 
   const filteredIngredients = createFilteredList(cocktailData, "strIngredient");
 
+  const filteredMeasures = createFilteredList(cocktailData, "strMeasure");
+
   return (
     <div className={`${styles.CocktailInfo} ${infoVisible && styles.active}`}>
       <div className={styles.infoImage}>
@@ -15,12 +17,25 @@ const CocktailInfo = ({ cocktailData, infoVisible, setInfoVisible }) => {
       </div>
       <div className={styles.actualInfo}>
         <h1 className={styles.cocktailName}>{cocktailData.strDrink}</h1>
-        <h3>Ingredients:</h3>
-        <ul>
-          {filteredIngredients.map((ingredient) => (
-            <li key={ingredient[1]}>{ingredient[1]}</li>
-          ))}
-        </ul>
+        <div className={styles.needed}>
+          <div className={styles.ingredients}>
+            <h3>Ingredients:</h3>
+            <ul>
+              {filteredIngredients.map((ingredient) => (
+                <li key={ingredient[1]}>{ingredient[1]}</li>
+              ))}
+            </ul>
+          </div>
+
+          <div className={styles.measures}>
+            <h3>Measures:</h3>
+            <ul>
+              {filteredMeasures.map((measure) => (
+                <li key={measure[1]}>{measure[1]}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
         <h3>Preparation:</h3>
         <p>{cocktailData.strInstructionsIT}</p>
       </div>

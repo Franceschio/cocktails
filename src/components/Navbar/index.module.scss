@@ -17,10 +17,15 @@
     text-decoration: none;
     color: $secondary-color;
     cursor: pointer;
-    @include flex-box;
+    @include flex-box($gap: 3px);
 
     &:hover {
-      text-decoration: underline;
+      border-bottom: 1px solid $primary-box-shadow;
+    }
+
+    img {
+      height: 20px;
+      width: 20px;
     }
   }
 

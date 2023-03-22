@@ -37,12 +37,28 @@
       text-align: center;
     }
 
-    ul {
-      @include flex-box($direction: column, $gap: 10px, $wrap: wrap);
-    }
+    .needed {
+      @include flex-box;
+      width: 100%;
 
-    li {
-      border-bottom: 1px solid $primary-box-shadow;
+      .ingredients,
+      .measures {
+        width: 50%;
+        @include flex-box($direction: column, $gap: 10px);
+
+        ul {
+          @include flex-box(
+            $direction: column,
+            $align: flex-start,
+            $gap: 10px,
+            $wrap: wrap
+          );
+        }
+
+        li {
+          border-bottom: 1px solid $primary-box-shadow;
+        }
+      }
     }
 
     p {
