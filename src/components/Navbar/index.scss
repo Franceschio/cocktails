@@ -17,6 +17,7 @@
     text-decoration: none;
     color: $secondary-color;
     cursor: pointer;
+    @include flex-box;
 
     &:hover {
       text-decoration: underline;
@@ -32,7 +33,7 @@
     top: 20%;
     left: -100vw;
     color: $secondary-color;
-    @include flex-box($gap: 15px, $wrap: wrap);
+    @include flex-box($gap: 10px, $wrap: wrap);
     font-size: 20px;
     transition: 0.4s;
 
