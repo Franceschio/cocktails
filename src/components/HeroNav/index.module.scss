@@ -50,6 +50,7 @@
 
       &:hover {
         background-color: $cases-color;
+        text-decoration: underline;
       }
     }
 
@@ -77,10 +78,11 @@
       cursor: pointer;
       transition: 0.4s;
       border-radius: 4px;
-      padding: 5px;
+      padding: 50px;
 
       &:hover {
         text-decoration: underline;
+        background-color: $cases-color;
       }
     }
   }

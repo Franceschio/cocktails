@@ -29,6 +29,31 @@
     }
   }
 
+  .searchCont {
+    position: fixed;
+    top: -100%;
+    // left: 50%;
+    // margin-left: -150px;
+    @include flex-box;
+    width: 100vw;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: $primary-color;
+    color: $secondary-color;
+    font-size: 20px;
+    transition: 0.4s;
+
+    .searchBar {
+      width: 200px;
+      display: flex;
+      padding-right: 10px;
+    }
+  }
+
+  .searchActive {
+    top: 20%;
+  }
+
   .alphabetOrder {
     position: fixed;
     width: 50%;

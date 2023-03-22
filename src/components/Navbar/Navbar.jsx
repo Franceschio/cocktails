@@ -15,8 +15,36 @@ const Navbar = ({ alphabetTable, setAlphabetTable, setSelectedLetter }) => {
     setSelectedLetter(() => letter);
   };
 
+  const changeInputValue = (e) => {
+    setInputValue(() => e.target.value);
+  };
+
+  const [inputValue, setInputValue] = useState("");
+
+  const [isSearchActive, setSearchActive] = useState(false);
+
+  const setSearch = () => setSearchActive((prev) => !prev);
+
   return (
     <div className={styles.Navbar}>
+      <div
+        className={`${styles.searchCont} ${
+          isSearchActive && styles.searchActive
+        }`}
+      >
+        <form className={styles.searchBar}>
+          <input
+            className={styles.search}
+            type="text"
+            placeholder="Search..."
+            value={inputValue}
+            onChange={changeInputValue}
+            required
+          />
+          <input className={styles.searchBtn} type="submit" value="search" />
+        </form>
+      </div>
+
       <div
         className={`${styles.alphabetOrder} ${
           alphabetTable && styles.activeAlphabet
@@ -32,7 +60,8 @@ const Navbar = ({ alphabetTable, setAlphabetTable, setSelectedLetter }) => {
           </p>
         ))}
       </div>
-      <div className={styles.activateSearch}>
+
+      <div onClick={setSearch} className={styles.activateSearch}>
         <img
           src="https://img.icons8.com/external-kmg-design-flat-kmg-design/512/external-search-ui-essentials-kmg-design-flat-kmg-design.png"
           alt="search"
@@ -55,7 +84,14 @@ const Navbar = ({ alphabetTable, setAlphabetTable, setSelectedLetter }) => {
         </li>
       </ul>
       <form className={styles.searchBar}>
-        <input className={styles.search} type="text" placeholder="Search..." />
+        <input
+          className={styles.search}
+          type="text"
+          placeholder="Search..."
+          value={inputValue}
+          onChange={changeInputValue}
+          required
+        />
         <input className={styles.searchBtn} type="submit" value="search" />
       </form>
       <div className={styles.logo}>
