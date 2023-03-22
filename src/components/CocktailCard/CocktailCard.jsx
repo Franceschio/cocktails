@@ -1,4 +1,5 @@
-import "./index.scss";
+import styles from "./index.module.scss";
+import { createFilteredList } from "../../utils/Funcs&Variables/funcs&variables";
 
 const CocktailCard = ({ cocktailData, setCocktailInfo, setInfoVisible }) => {
   const setInfo = () => {
@@ -6,37 +7,22 @@ const CocktailCard = ({ cocktailData, setCocktailInfo, setInfoVisible }) => {
     setInfoVisible(() => true);
   };
 
+  const filteredIngredients = createFilteredList(cocktailData, "strIngredient");
+
   return (
-    <div className="CocktailCard">
+    <div className={styles.CocktailCard}>
       <img
         src={cocktailData.strDrinkThumb}
         alt="CardImage"
-        className="CardImage"
+        className={styles.cardImage}
         onClick={setInfo}
       />
       <h3 onClick={setInfo}>{cocktailData.strDrink}</h3>
-      <div className="cocktailInformations">
-        <ul className="ingredients">
-          <li>{cocktailData.strIngredient1}</li>
-          <li>{cocktailData.strIngredient2}</li>
-          {cocktailData.strIngredient3 ? (
-            <li>{cocktailData.strIngredient3}</li>
-          ) : null}
-          {cocktailData.strIngredient4 ? (
-            <li>{cocktailData.strIngredient4}</li>
-          ) : null}
-          {cocktailData.strIngredient5 ? (
-            <li>{cocktailData.strIngredient5}</li>
-          ) : null}
-          {cocktailData.strIngredient6 ? (
-            <li>{cocktailData.strIngredient6}</li>
-          ) : null}
-          {cocktailData.strIngredient7 ? (
-            <li>{cocktailData.strIngredient7}</li>
-          ) : null}
-          {cocktailData.strIngredient8 ? (
-            <li>{cocktailData.strIngredient8}</li>
-          ) : null}
+      <div className={styles.cocktailInformations}>
+        <ul className={styles.ingredients}>
+          {filteredIngredients.map((ingredient) => (
+            <li key={ingredient[1]}>{ingredient[1]}</li>
+          ))}
         </ul>
       </div>
     </div>

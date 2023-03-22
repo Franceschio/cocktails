@@ -1,4 +1,4 @@
-import "./index.scss";
+import styles from "./index.module.scss";
 
 import CocktailCard from "../CocktailCard";
 import { useState } from "react";
@@ -15,7 +15,7 @@ const MainList = ({
     .filter((cocktail) => cocktail.strCategory === category);
 
   return (
-    <div className="MainList">
+    <div className={styles.MainList}>
       {filteredCocktails.length > 0 ? (
         filteredCocktails.map((cocktail) => (
           <CocktailCard
@@ -26,7 +26,7 @@ const MainList = ({
           />
         ))
       ) : (
-        <h3 className="notFoundMsg">
+        <h3 className={styles.notFoundMsg}>
           sembrerebbe che non siano presenti prodotti di questa categoria in
           questo momento.
         </h3>

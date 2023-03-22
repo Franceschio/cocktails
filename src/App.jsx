@@ -1,4 +1,4 @@
-import "./App.scss";
+import styles from "./App.module.scss";
 
 import GET from "./utils/http";
 
@@ -31,7 +31,7 @@ function App() {
   }, [selectedLetter]);
 
   return (
-    <div className="App">
+    <div className={styles.App}>
       <Navbar
         alphabetTable={alphabetTable}
         setAlphabetTable={setAlphabetTable}

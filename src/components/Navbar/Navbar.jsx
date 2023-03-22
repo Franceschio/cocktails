@@ -1,5 +1,6 @@
 import { useState } from "react";
-import "./index.scss";
+import styles from "./index.module.scss";
+import { alphabet } from "../../utils/Funcs&Variables/funcs&variables";
 
 const Navbar = ({ alphabetTable, setAlphabetTable, setSelectedLetter }) => {
   const refresh = () => {
@@ -14,21 +15,28 @@ const Navbar = ({ alphabetTable, setAlphabetTable, setSelectedLetter }) => {
     setSelectedLetter(() => letter);
   };
 
-  const alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
-
   return (
-    <div className={`Navbar`}>
-      <div className={`alphabetOrder ${alphabetTable && "activeAlphabet"}`}>
+    <div className={styles.Navbar}>
+      <div
+        className={`${styles.alphabetOrder} ${
+          alphabetTable && styles.activeAlphabet
+        }`}
+      >
         {alphabet.map((letter) => (
-          <p onClick={() => newLetter(letter)} key={letter}>
+          <p
+            className={styles.singleLetter}
+            onClick={() => newLetter(letter)}
+            key={letter}
+          >
             {letter}
           </p>
         ))}
       </div>
-      <div className="activateSearch">
+      <div className={styles.activateSearch}>
         <img
           src="https://img.icons8.com/external-kmg-design-flat-kmg-design/512/external-search-ui-essentials-kmg-design-flat-kmg-design.png"
           alt="search"
+          className={styles.searchActivator}
         />
       </div>
       <ul>
@@ -40,11 +48,11 @@ const Navbar = ({ alphabetTable, setAlphabetTable, setSelectedLetter }) => {
         </a>
         <li onClick={activateAlphabet}>Set letter</li>
       </ul>
-      <form className="searchBar">
-        <input className="search" type="text" placeholder="Search..." />
-        <input className="searchBtn" type="submit" value="search" />
+      <form className={styles.searchBar}>
+        <input className={styles.search} type="text" placeholder="Search..." />
+        <input className={styles.searchBtn} type="submit" value="search" />
       </form>
-      <div className="logo">
+      <div className={styles.logo}>
         <img
           src="https://img.icons8.com/external-vitaliy-gorbachev-blue-vitaly-gorbachev/512/external-cocktail-vacation-vitaliy-gorbachev-blue-vitaly-gorbachev.png"
           alt="logo"

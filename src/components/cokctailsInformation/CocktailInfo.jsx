@@ -1,43 +1,30 @@
-import "./index.scss";
+import styles from "./index.module.scss";
+import { createFilteredList } from "../../utils/Funcs&Variables/funcs&variables";
 
 const CocktailInfo = ({ cocktailData, infoVisible, setInfoVisible }) => {
   const closeInformations = () => {
     setInfoVisible(false);
   };
+
+  const filteredIngredients = createFilteredList(cocktailData, "strIngredient");
+
   return (
-    <div className={`CocktailInfo ${infoVisible && "active"}`}>
-      <div className="infoImage">
+    <div className={`${styles.CocktailInfo} ${infoVisible && styles.active}`}>
+      <div className={styles.infoImage}>
         <img src={cocktailData.strDrinkThumb} alt="Info image" />
       </div>
-      <div className="actualInfo">
-        <h1 className="cocktailName">{cocktailData.strDrink}</h1>
+      <div className={styles.actualInfo}>
+        <h1 className={styles.cocktailName}>{cocktailData.strDrink}</h1>
         <h3>Ingredients:</h3>
         <ul>
-          <li>{cocktailData.strIngredient1}</li>
-          <li>{cocktailData.strIngredient2}</li>
-          {cocktailData.strIngredient3 ? (
-            <li>{cocktailData.strIngredient3}</li>
-          ) : null}
-          {cocktailData.strIngredient4 ? (
-            <li>{cocktailData.strIngredient4}</li>
-          ) : null}
-          {cocktailData.strIngredient5 ? (
-            <li>{cocktailData.strIngredient5}</li>
-          ) : null}
-          {cocktailData.strIngredient6 ? (
-            <li>{cocktailData.strIngredient6}</li>
-          ) : null}
-          {cocktailData.strIngredient7 ? (
-            <li>{cocktailData.strIngredient7}</li>
-          ) : null}
-          {cocktailData.strIngredient8 ? (
-            <li>{cocktailData.strIngredient8}</li>
-          ) : null}
+          {filteredIngredients.map((ingredient) => (
+            <li key={ingredient[1]}>{ingredient[1]}</li>
+          ))}
         </ul>
         <h3>Preparation:</h3>
         <p>{cocktailData.strInstructionsIT}</p>
       </div>
-      <div className="closeInfo" onClick={closeInformations}>
+      <div className={styles.closeInfo} onClick={closeInformations}>
         X
       </div>
     </div>

@@ -11,7 +11,7 @@
   bottom: 0px;
   left: 0px;
 
-  ul {
+  .footerList {
     list-style: none;
     @include flex-box($justify: space-evenly, $gap: 20px);
     font-size: 10px;
@@ -27,7 +27,7 @@
 @media screen and (min-width: 770px) {
   .Footer {
     width: 100%;
-    ul {
+    .footerList {
       font-size: 16px;
     }
   }

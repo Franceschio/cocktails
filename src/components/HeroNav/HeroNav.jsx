@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import "./index.scss";
+import styles from "./index.module.scss";
 
 const HeroNav = ({ setCategory, setAlcoholic }) => {
   const onHandleCategory = (value) => {
@@ -11,9 +11,9 @@ const HeroNav = ({ setCategory, setAlcoholic }) => {
   };
 
   return (
-    <div className="HeroNav">
+    <div className={styles.HeroNav}>
       <h1>Iceberg lounge</h1>
-      <ul className="types">
+      <ul className={styles.types}>
         <li onClick={() => onHandleAlcoholic("Alcoholic")}>
           <img
             src="https://img.icons8.com/ios-glyphs/512/cocktail.png"
@@ -30,7 +30,7 @@ const HeroNav = ({ setCategory, setAlcoholic }) => {
         </li>
       </ul>
       <hr />
-      <ul className="categories">
+      <ul className={styles.categories}>
         <li onClick={() => onHandleCategory("Ordinary Drink")}>
           Ordinary Drink
         </li>
