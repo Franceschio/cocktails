@@ -61,7 +61,7 @@
 
   .categories {
     list-style: none;
-    @include flex-box($justify: space-evenly, $gap: 20px);
+    @include flex-box($justify: space-evenly, $gap: 10px);
     width: 100%;
     font-size: 12px;
     padding: 10px;
