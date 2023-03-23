@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <div className={styles.Footer}>
       <ul className={styles.footerList}>
-        <li>589393873583</li>
+        <li>About us</li>
         <li>icebergLoung@services.com</li>
         <li>Join our team!</li>
       </ul>

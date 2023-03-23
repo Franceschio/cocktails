@@ -6,6 +6,7 @@ const Navbar = ({
   alphabetTable,
   setAlphabetTable,
   setSelectedLetter,
+  selectedLetter,
   setSearched,
 }) => {
   const refresh = () => {
@@ -52,7 +53,7 @@ const Navbar = ({
           <input
             className={styles.search}
             type="text"
-            placeholder="Search..."
+            placeholder={`Search in ${selectedLetter}...`}
             value={inputValue}
             onChange={changeInputValue}
             required
@@ -67,13 +68,13 @@ const Navbar = ({
         }`}
       >
         {alphabet.map((letter) => (
-          <p
+          <span
             className={styles.singleLetter}
             onClick={() => newLetter(letter)}
             key={letter}
           >
             {letter}
-          </p>
+          </span>
         ))}
       </div>
 
@@ -85,12 +86,13 @@ const Navbar = ({
         />
       </div>
       <ul>
-        <a href="#">
-          <li>Home</li>
-        </a>
-        <a href="#">
-          <li>About</li>
-        </a>
+        <li>
+          Prenota
+          <img
+            src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/512/external-booking-bowling-alley-and-arcade-flaticons-lineal-color-flat-icons-2.png"
+            alt="prenotazione"
+          />
+        </li>
         <li onClick={activateAlphabet}>
           set
           <img
@@ -103,7 +105,7 @@ const Navbar = ({
         <input
           className={styles.search}
           type="text"
-          placeholder="Search..."
+          placeholder={`Search in ${selectedLetter}...`}
           value={inputValue}
           onChange={changeInputValue}
           required

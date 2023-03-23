@@ -38,6 +38,7 @@ function App() {
         alphabetTable={alphabetTable}
         setAlphabetTable={setAlphabetTable}
         setSelectedLetter={setSelectedLetter}
+        selectedLetter={selectedLetter}
         setSearched={setSearched}
       />
       <HeroNav setCategory={setCategory} setAlcoholic={setAlcoholic} />

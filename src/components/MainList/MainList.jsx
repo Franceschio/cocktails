@@ -19,7 +19,7 @@ const MainList = ({
         .filter((cocktail) => cocktail.strAlcoholic === alcoholic)
         .filter((cocktail) => cocktail.strCategory === category)
         .filter((cocktail) =>
-          cocktail.strDrink.toLowerCase().includes(searched)
+          cocktail.strDrink.toLowerCase().includes(searched.toLowerCase())
         );
 
   return (
