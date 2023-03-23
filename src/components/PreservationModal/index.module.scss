@@ -21,26 +21,44 @@
   }
 
   .preservation {
-    height: 60%;
     width: 65%;
+    height: 45%;
     margin-right: 5%;
-    background-color: $secondary-color;
+    background-color: $cases-color;
     border-radius: 10px;
     border: none;
-    @include flex-box($direction: column, $gap: 30px);
+    padding: 30px;
+    @include flex-box($direction: column, $justify: flex-start, $gap: 20px);
     z-index: 6;
+    overflow-y: scroll;
+
     animation-name: ballRush;
     animation-duration: 0.4s;
     animation-timing-function: ease-in;
     animation-delay: 0s;
 
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .surname,
+    .date,
+    .hour {
+      @include flex-box($direction: column, $gap: 5px);
+      label {
+        color: $primary-color;
+      }
+    }
+
     input {
       border-radius: 5px;
-      padding: 10px;
-      background-color: $cases-color;
-      border: 1px solid $primary-color;
-      width: 200px;
+      padding: 8px;
+      background-color: $secondary-color;
+      border: none;
+      border-bottom: 2px solid $primary-box-shadow;
+      width: 180px;
       transition: 0.4s;
+      box-shadow: 4px 2px 4px $secondary-box-shadow;
 
       animation-name: inputRush;
       animation-duration: 0.4s;
@@ -61,7 +79,12 @@
 
     .preservation {
       width: 60%;
+      height: auto;
       margin-right: 0;
+
+      input {
+        width: 220px;
+      }
     }
   }
 }

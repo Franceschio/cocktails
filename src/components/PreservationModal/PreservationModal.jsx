@@ -33,13 +33,13 @@ const PreservationModal = ({
       setMsg(
         `Tavolo prenotato per giorno ${date.current.value} alle ore ${hour.current.value} sotto il nome di ${surname.current.value}!`
       );
+      disactivate();
     } else {
       setMsg(
         `Ci dispiace, il tavolo per giorno ${date.current.value} alle ore ${hour.current.value} risulta già prenotato!`
       );
       setPreservations((prev) => [...prev]);
     }
-    disactivate();
   };
 
   const disactivate = () => {
@@ -51,9 +51,26 @@ const PreservationModal = ({
       <div onClick={disactivate} className={styles.overlay}></div>
       <form onSubmit={reserve} className={styles.preservation}>
         <h3>Prenota ora!</h3>
-        <input ref={surname} type="text" placeholder="Surname" />
-        <input ref={date} type="date" />
-        <input ref={hour} type="time" />
+        <div className={styles.surname}>
+          <label htmlFor="surname">Cognome</label>
+          <input
+            name="surname"
+            ref={surname}
+            type="text"
+            placeholder="Cognome"
+          />
+        </div>
+
+        <div className={styles.date}>
+          <label htmlFor="date">Data</label>
+          <input name="date" ref={date} type="date" />
+        </div>
+
+        <div className={styles.hour}>
+          <label htmlFor="hour">Ora</label>
+          <input name="hour" ref={hour} type="time" />
+        </div>
+
         <input className={styles.preserveBtn} value={"submit"} type="submit" />
       </form>
     </div>

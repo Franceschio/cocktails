@@ -82,24 +82,27 @@
   }
 
   .activateSearch {
-    height: 20px;
-    width: 25px;
-    @include flex-box;
+    height: 30px;
+    width: 33.3%;
     cursor: pointer;
+    @include flex-box($justify: flex-start);
+    user-select: none;
 
-    .searchActivator {
-      @include fit-image;
+    img {
+      height: 100%;
+      width: 30px;
     }
   }
 
   ul {
     list-style: none;
-    @include flex-box($gap: 10px);
+    @include flex-box($justify: flex-start, $gap: 10px);
+    width: 33.3%;
   }
 
   .searchBar {
     display: none;
-    width: 30%;
+    width: 33.3%;
     background-color: $primary-color;
 
     .search,
@@ -123,12 +126,14 @@
 
   .logo {
     cursor: pointer;
-    height: 25px;
-    width: 10%;
-  }
+    height: 30px;
+    width: 33.3%;
+    @include flex-box($justify: flex-end);
 
-  img {
-    @include fit-image;
+    img {
+      height: 100%;
+      width: 30px;
+    }
   }
 }
 
@@ -136,11 +141,6 @@
   .Navbar {
     ul {
       font-size: 16px;
-    }
-
-    .logo {
-      height: 50px;
-      width: 50px;
     }
   }
 }
@@ -151,8 +151,20 @@
       display: none;
     }
 
+    .searchActive {
+      display: none;
+    }
+
     .searchBar {
-      display: flex;
+      @include flex-box;
+    }
+
+    .logo {
+      height: 50px;
+
+      img {
+        @include fit-image($width: 50px);
+      }
     }
   }
 }

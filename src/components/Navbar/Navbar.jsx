@@ -83,11 +83,12 @@ const Navbar = ({
         ))}
       </div>
 
-      <div onClick={setSearch} className={styles.activateSearch}>
+      <div className={styles.activateSearch}>
         <img
           src="https://img.icons8.com/external-kmg-design-flat-kmg-design/512/external-search-ui-essentials-kmg-design-flat-kmg-design.png"
           alt="search"
           className={styles.searchActivator}
+          onClick={setSearch}
         />
       </div>
       <ul>
