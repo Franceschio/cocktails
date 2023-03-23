@@ -8,6 +8,7 @@ import MainList from "./components/MainList";
 import Footer from "./components/Footer/Footer";
 import CocktailInfo from "./components/cokctailsInformation/CocktailInfo";
 import PreservationModal from "./components/PreservationModal/PreservationModal";
+import PopUp from "./components/PopUp/PopUp";
 import { useEffect, useState } from "react";
 
 function App() {
@@ -29,11 +30,26 @@ function App() {
 
   const [presevation, setPreservation] = useState(false);
 
+  const [popUp, setPopUp] = useState(false);
+
+  const [msg, setMsg] = useState("");
+
+  const [allPreservations, setAllPreservations] = useState([]);
+
   useEffect(() => {
     GET(`/search.php?f=${selectedLetter}`).then((data) =>
       setCocktailsList(() => data.drinks)
     );
   }, [selectedLetter]);
+
+  useEffect(() => {
+    if (allPreservations.length > 0) {
+      setPopUp(() => true);
+      setTimeout(() => {
+        setPopUp(() => false);
+      }, 4000);
+    }
+  }, [allPreservations]);
 
   return (
     <div className={styles.App}>
@@ -61,8 +77,15 @@ function App() {
         setInfoVisible={setInfoVisible}
       />
       {presevation ? (
-        <PreservationModal setPreservation={setPreservation} />
+        <PreservationModal
+          setPreservation={setPreservation}
+          setMsg={setMsg}
+          setPreservations={setAllPreservations}
+          allPreservations={allPreservations}
+        />
       ) : null}
+
+      {popUp ? <PopUp>{msg}</PopUp> : null}
     </div>
   );
 }

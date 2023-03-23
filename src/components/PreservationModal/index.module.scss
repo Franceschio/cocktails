@@ -40,11 +40,17 @@
       background-color: $cases-color;
       border: 1px solid $primary-color;
       width: 200px;
+      transition: 0.4s;
 
       animation-name: inputRush;
       animation-duration: 0.4s;
       animation-timing-function: ease-in;
       animation-delay: 0s;
+    }
+
+    .preserveBtn:hover {
+      cursor: pointer;
+      background-color: $buttons-hover-color;
     }
   }
 }
