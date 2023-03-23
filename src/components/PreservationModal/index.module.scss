@@ -1,0 +1,52 @@
+@import "../../Styles/variables";
+@import "../../Styles/mixins";
+
+.PreservationModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 105%;
+  background-color: rgba($color: #000000, $alpha: 0.2);
+  z-index: 4;
+  @include flex-box;
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 5;
+  }
+
+  .preservation {
+    height: 60%;
+    width: 65%;
+    margin-right: 5%;
+    background-color: $secondary-color;
+    border-radius: 10px;
+    border: none;
+    @include flex-box($direction: column, $gap: 30px);
+    z-index: 6;
+
+    input {
+      border-radius: 5px;
+      padding: 10px;
+      background-color: $cases-color;
+      border: 1px solid $primary-color;
+      width: 200px;
+    }
+  }
+}
+
+@media screen and (min-width: 770px) {
+  .PreservationModal {
+    width: 100%;
+
+    .preservation {
+      width: 60%;
+      margin-right: 0;
+    }
+  }
+}

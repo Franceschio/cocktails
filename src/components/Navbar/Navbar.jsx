@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./index.module.scss";
 import { alphabet } from "../../utils/Funcs&Variables/funcs&variables";
 
@@ -8,6 +8,7 @@ const Navbar = ({
   setSelectedLetter,
   selectedLetter,
   setSearched,
+  setPreservation,
 }) => {
   const refresh = () => {
     location.reload();
@@ -30,6 +31,10 @@ const Navbar = ({
   const search = (e) => {
     e.preventDefault();
     setSearched(inputValue);
+  };
+
+  const activatePreservation = () => {
+    setPreservation(() => true);
   };
 
   const [inputValue, setInputValue] = useState("");
@@ -86,8 +91,8 @@ const Navbar = ({
         />
       </div>
       <ul>
-        <li>
-          Prenota
+        <li onClick={activatePreservation}>
+          Prenotation
           <img
             src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/512/external-booking-bowling-alley-and-arcade-flaticons-lineal-color-flat-icons-2.png"
             alt="prenotazione"

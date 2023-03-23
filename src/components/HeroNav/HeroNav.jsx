@@ -1,14 +1,20 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import styles from "./index.module.scss";
 
 const HeroNav = ({ setCategory, setAlcoholic }) => {
   const onHandleCategory = (value) => {
     setCategory(value);
+    setActualCategory(value);
   };
 
   const onHandleAlcoholic = (value) => {
     setAlcoholic(value);
+    setActualType(value);
   };
+
+  const [actualType, setActualType] = useState("Alcoholic");
+
+  const [actualCategory, setActualCategory] = useState("Ordinary Drink");
 
   return (
     <div className={styles.HeroNav}>
@@ -40,6 +46,10 @@ const HeroNav = ({ setCategory, setAlcoholic }) => {
         <li onClick={() => onHandleCategory("Coffee / Tea")}>Coffee</li>
         <li onClick={() => onHandleCategory("Other / Unknown")}>Other</li>
       </ul>
+      <div className={styles.activeFilters}>
+        <h3>{actualType}:</h3>
+        <p>{actualCategory}</p>
+      </div>
     </div>
   );
 };

@@ -7,6 +7,7 @@ import HeroNav from "./components/HeroNav/HeroNav";
 import MainList from "./components/MainList";
 import Footer from "./components/Footer/Footer";
 import CocktailInfo from "./components/cokctailsInformation/CocktailInfo";
+import PreservationModal from "./components/PreservationModal/PreservationModal";
 import { useEffect, useState } from "react";
 
 function App() {
@@ -26,6 +27,8 @@ function App() {
 
   const [searched, setSearched] = useState(null);
 
+  const [presevation, setPreservation] = useState(false);
+
   useEffect(() => {
     GET(`/search.php?f=${selectedLetter}`).then((data) =>
       setCocktailsList(() => data.drinks)
@@ -40,6 +43,7 @@ function App() {
         setSelectedLetter={setSelectedLetter}
         selectedLetter={selectedLetter}
         setSearched={setSearched}
+        setPreservation={setPreservation}
       />
       <HeroNav setCategory={setCategory} setAlcoholic={setAlcoholic} />
       <MainList
@@ -56,6 +60,9 @@ function App() {
         infoVisible={infoVisible}
         setInfoVisible={setInfoVisible}
       />
+      {presevation ? (
+        <PreservationModal setPreservation={setPreservation} />
+      ) : null}
     </div>
   );
 }
