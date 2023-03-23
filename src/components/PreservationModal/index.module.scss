@@ -29,6 +29,10 @@
     border: none;
     @include flex-box($direction: column, $gap: 30px);
     z-index: 6;
+    animation-name: ballRush;
+    animation-duration: 0.4s;
+    animation-timing-function: ease-in;
+    animation-delay: 0s;
 
     input {
       border-radius: 5px;
@@ -36,6 +40,11 @@
       background-color: $cases-color;
       border: 1px solid $primary-color;
       width: 200px;
+
+      animation-name: inputRush;
+      animation-duration: 0.4s;
+      animation-timing-function: ease-in;
+      animation-delay: 0s;
     }
   }
 }
@@ -48,5 +57,27 @@
       width: 60%;
       margin-right: 0;
     }
+  }
+}
+
+@keyframes ballRush {
+  from {
+    height: 25px;
+    width: 25px;
+    border-radius: 100%;
+  }
+  to {
+    height: 60%;
+    width: 65%;
+    border-radius: 10px;
+  }
+}
+
+@keyframes inputRush {
+  from {
+    width: 0;
+  }
+  to {
+    width: 200px;
   }
 }

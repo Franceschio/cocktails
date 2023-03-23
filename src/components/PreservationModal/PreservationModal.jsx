@@ -26,7 +26,7 @@ const PreservationModal = ({ setPreservation }) => {
     <div className={styles.PreservationModal}>
       <div onClick={disactivate} className={styles.overlay}></div>
       <form onSubmit={reserve} className={styles.preservation}>
-        <h3>Prenota</h3>
+        <h3>Preserve</h3>
         <input ref={surname} type="text" placeholder="Surname" />
         <input ref={date} type="date" />
         <input ref={hour} type="time" />
