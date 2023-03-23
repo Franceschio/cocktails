@@ -16,6 +16,15 @@ const HeroNav = ({ setCategory, setAlcoholic }) => {
 
   const [actualCategory, setActualCategory] = useState("Ordinary Drink");
 
+  const [categories, setCategories] = useState([
+    "Ordinary Drink",
+    "Cocktail",
+    "Shot",
+    "Punch / Party Drink",
+    "Coffee / Tea",
+    "Other / Unknown",
+  ]);
+
   return (
     <div className={styles.HeroNav}>
       <h1>Iceberg lounge</h1>
@@ -37,14 +46,9 @@ const HeroNav = ({ setCategory, setAlcoholic }) => {
       </ul>
       <hr />
       <ul className={styles.categories}>
-        <li onClick={() => onHandleCategory("Ordinary Drink")}>
-          Ordinary Drink
-        </li>
-        <li onClick={() => onHandleCategory("Cocktail")}>Cocktail</li>
-        <li onClick={() => onHandleCategory("Shot")}>Shot</li>
-        <li onClick={() => onHandleCategory("Punch / Party Drink")}>Punch</li>
-        <li onClick={() => onHandleCategory("Coffee / Tea")}>Coffee</li>
-        <li onClick={() => onHandleCategory("Other / Unknown")}>Other</li>
+        {categories.map((category) => (
+          <li onClick={() => onHandleCategory(category)}>{category}</li>
+        ))}
       </ul>
       <div className={styles.activeFilters}>
         <h3>{actualType}:</h3>
