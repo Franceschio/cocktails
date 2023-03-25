@@ -20,7 +20,7 @@ function App() {
 
   const [cocktailInfo, setCocktailInfo] = useState({});
 
-  const [visualCocktail, setVisualContent] = useState(null);
+  const [visualCocktail, setVisualCocktail] = useState(null);
 
   const [infoVisible, setInfoVisible] = useState(false);
 
@@ -73,13 +73,16 @@ function App() {
         setCocktailInfo={setCocktailInfo}
         setInfoVisible={setInfoVisible}
         searched={searched}
-        setVisualContent={setVisualContent}
+        setVisualCocktail={setVisualCocktail}
       />
       <Footer />
       <CocktailInfo
         cocktailData={cocktailInfo}
+        setCocktailInfo={setCocktailInfo}
         infoVisible={infoVisible}
         setInfoVisible={setInfoVisible}
+        filteredCocktails={filteredCocktails}
+        visualCocktail={visualCocktail}
       />
       {presevation ? (
         <PreservationModal

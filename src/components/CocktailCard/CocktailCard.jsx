@@ -6,10 +6,12 @@ const CocktailCard = ({
   setCocktailInfo,
   setInfoVisible,
   filteredCocktails,
+  setVisualCocktail,
 }) => {
   const setInfo = () => {
-    setCocktailInfo(() => cocktailData);
+    setCocktailInfo(filteredCocktails[filteredCocktails.indexOf(cocktailData)]);
     setInfoVisible(() => true);
+    setVisualCocktail(filteredCocktails.indexOf(cocktailData));
   };
 
   const filteredIngredients = createFilteredList(cocktailData, "strIngredient");

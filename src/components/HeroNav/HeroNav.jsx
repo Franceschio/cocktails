@@ -47,7 +47,9 @@ const HeroNav = ({ setCategory, setAlcoholic }) => {
       <hr />
       <ul className={styles.categories}>
         {categories.map((category) => (
-          <li onClick={() => onHandleCategory(category)}>{category}</li>
+          <li onClick={() => onHandleCategory(category)} key={category}>
+            {category}
+          </li>
         ))}
       </ul>
       <div className={styles.activeFilters}>
