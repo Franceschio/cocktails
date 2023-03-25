@@ -1,10 +1,22 @@
 import styles from "./index.module.scss";
 import { createFilteredList } from "../../utils/Funcs&Variables/funcs&variables";
+import { useEffect, useState } from "react";
 
-const CocktailCard = ({ cocktailData, setCocktailInfo, setInfoVisible }) => {
+const CocktailCard = ({
+  cocktailData,
+  setCocktailInfo,
+  setInfoVisible,
+  filteredCocktails,
+  setVisualContent,
+}) => {
   const setInfo = () => {
     setCocktailInfo(() => cocktailData);
     setInfoVisible(() => true);
+    setVisualContent(
+      filteredCocktails.find(
+        (cocktail) => cocktail.idDrink === cocktailData.idDrink
+      )
+    );
   };
 
   const filteredIngredients = createFilteredList(cocktailData, "strIngredient");

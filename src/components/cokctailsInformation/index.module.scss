@@ -67,6 +67,36 @@
     }
   }
 
+  .changeCocktail {
+    width: 100%;
+    position: absolute;
+    bottom: 50px;
+    left: 0;
+    @include flex-box;
+
+    .leftArrow,
+    .rightArrow {
+      width: 50%;
+      height: 100%;
+      @include flex-box;
+
+      p {
+        font-size: 25px;
+        padding: 25px;
+        border-radius: 100%;
+        background-color: $secondary-color;
+        border: 1px solid $primary-color;
+        cursor: pointer;
+        transition: 0.4s;
+
+        &:hover {
+          background-color: $buttons-hover-color;
+          transform: scale(1.2);
+        }
+      }
+    }
+  }
+
   .closeInfo {
     position: absolute;
     left: 10px;
@@ -83,6 +113,17 @@
 
 .active {
   transform: translate(0px);
+}
+
+@media screen and (min-width: 500px) {
+  .CocktailInfo {
+    .changeCocktail {
+      position: relative;
+      top: 0;
+      left: 0;
+      padding: 40px;
+    }
+  }
 }
 
 @media screen and (min-width: 770px) {

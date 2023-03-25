@@ -4,23 +4,17 @@ import CocktailCard from "../CocktailCard";
 import { useState } from "react";
 
 const MainList = ({
-  cocktailsList,
-  category,
-  alcoholic,
+  filteredCocktails,
   setCocktailInfo,
   setInfoVisible,
   searched,
+  setVisualContent,
 }) => {
-  const filteredCocktails = !searched
-    ? cocktailsList
-        .filter((cocktail) => cocktail.strAlcoholic === alcoholic)
-        .filter((cocktail) => cocktail.strCategory === category)
-    : cocktailsList
-        .filter((cocktail) => cocktail.strAlcoholic === alcoholic)
-        .filter((cocktail) => cocktail.strCategory === category)
-        .filter((cocktail) =>
-          cocktail.strDrink.toLowerCase().includes(searched.toLowerCase())
-        );
+  filteredCocktails = !searched
+    ? filteredCocktails
+    : filteredCocktails.filter((cocktail) =>
+        cocktail.strDrink.toLowerCase().includes(searched.toLowerCase())
+      );
 
   return (
     <div className={styles.MainList}>
@@ -30,6 +24,8 @@ const MainList = ({
             cocktailData={cocktail}
             setCocktailInfo={setCocktailInfo}
             setInfoVisible={setInfoVisible}
+            filteredCocktails={filteredCocktails}
+            setVisualContent={setVisualContent}
             key={cocktail.idDrink}
           />
         ))

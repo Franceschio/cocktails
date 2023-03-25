@@ -20,6 +20,8 @@ function App() {
 
   const [cocktailInfo, setCocktailInfo] = useState({});
 
+  const [visualCocktail, setVisualContent] = useState(null);
+
   const [infoVisible, setInfoVisible] = useState(false);
 
   const [alphabetTable, setAlphabetTable] = useState(false);
@@ -51,6 +53,10 @@ function App() {
     }
   }, [allPreservations]);
 
+  const filteredCocktails = cocktailsList
+    .filter((cocktail) => cocktail.strAlcoholic === alcoholic)
+    .filter((cocktail) => cocktail.strCategory === category);
+
   return (
     <div className={styles.App}>
       <Navbar
@@ -63,12 +69,11 @@ function App() {
       />
       <HeroNav setCategory={setCategory} setAlcoholic={setAlcoholic} />
       <MainList
-        cocktailsList={cocktailsList}
-        category={category}
-        alcoholic={alcoholic}
+        filteredCocktails={filteredCocktails}
         setCocktailInfo={setCocktailInfo}
         setInfoVisible={setInfoVisible}
         searched={searched}
+        setVisualContent={setVisualContent}
       />
       <Footer />
       <CocktailInfo

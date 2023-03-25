@@ -170,7 +170,9 @@ const HeroNav = ({ setCategory, setAlcoholic }) => {
       <HeroHr />
       <Categories>
         {categories.map((category) => (
-          <li onClick={() => onHandleCategory(category)}>{category}</li>
+          <li key={category} onClick={() => onHandleCategory(category)}>
+            {category}
+          </li>
         ))}
       </Categories>
       <ActiveFilters>
