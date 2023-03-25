@@ -39,14 +39,6 @@ const CocktailInfo = ({ cocktailData, infoVisible, setInfoVisible }) => {
         <h3>Preparation:</h3>
         <p>{cocktailData.strInstructionsIT}</p>
       </div>
-      <div className={styles.changeCocktail}>
-        <div className={styles.leftArrow}>
-          <p className={styles.leftBtn}>{"<"}</p>
-        </div>
-        <div className={styles.rightArrow}>
-          <p className={styles.rightBtn}>{">"}</p>
-        </div>
-      </div>
       <div className={styles.closeInfo} onClick={closeInformations}>
         X
       </div>
