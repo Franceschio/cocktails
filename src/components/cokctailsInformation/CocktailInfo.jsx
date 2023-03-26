@@ -77,7 +77,7 @@ const CocktailInfo = ({
           </div>
         </div>
         <h3>Preparation:</h3>
-        <p>{cocktailData.strInstructionsIT}</p>
+        <p>{cocktailData.strInstructionsIT.split(".").join(". ")}</p>
       </div>
       <div className={styles.changeCocktail}>
         <div
