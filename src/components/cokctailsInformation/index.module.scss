@@ -86,6 +86,7 @@
 
       &:hover {
         color: $buttons-hover-color;
+        background-color: $secondary-color;
         transform: scale(1.2);
       }
     }
