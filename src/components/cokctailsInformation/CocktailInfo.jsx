@@ -8,43 +8,43 @@ const CocktailInfo = ({
   infoVisible,
   setInfoVisible,
   filteredCocktails,
-  visualCocktail,
+  counterInfo,
+  setCounterInfo,
 }) => {
   const closeInformations = () => {
     setInfoVisible(false);
   };
 
   const cocktailAfter = () => {
-    if (counter === filteredCocktails.length - 1) {
-      setCounter(0);
+    if (counterInfo === filteredCocktails.length - 1) {
+      setCounterInfo(0);
     } else {
-      setCounter(counter + 1);
+      setCounterInfo(counterInfo + 1);
     }
   };
 
   const cocktailBefore = () => {
-    if (counter <= 1) {
-      setCounter(filteredCocktails.length - 1);
+    if (counterInfo === 0) {
+      setCounterInfo(filteredCocktails.length - 1);
     } else {
-      setCounter(counter - 1);
+      setCounterInfo(counterInfo - 1);
     }
   };
 
   const setCocktailMore = () =>
     setCocktailInfo(() =>
-      counter === filteredCocktails.length - 1
+      counterInfo === filteredCocktails.length - 1
         ? filteredCocktails[0]
-        : filteredCocktails[counter + 1]
+        : filteredCocktails[counterInfo + 1]
     );
 
-  const setCocktailLess = () =>
+  const setCocktailLess = () => {
     setCocktailInfo(() =>
-      counter <= 1
+      counterInfo === 0
         ? filteredCocktails[filteredCocktails.length - 1]
-        : filteredCocktails[counter - 1]
+        : filteredCocktails[counterInfo - 1]
     );
-
-  const [counter, setCounter] = useState(visualCocktail + 1);
+  };
 
   const filteredIngredients = createFilteredList(cocktailData, "strIngredient");
 

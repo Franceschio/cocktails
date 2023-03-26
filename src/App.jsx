@@ -38,6 +38,8 @@ function App() {
 
   const [allPreservations, setAllPreservations] = useState([]);
 
+  const [counterInfo, setCounterInfo] = useState(visualCocktail);
+
   useEffect(() => {
     GET(`/search.php?f=${selectedLetter}`).then((data) =>
       setCocktailsList(() => data.drinks)
@@ -74,6 +76,7 @@ function App() {
         setInfoVisible={setInfoVisible}
         searched={searched}
         setVisualCocktail={setVisualCocktail}
+        setCounterInfo={setCounterInfo}
       />
       <Footer />
       <CocktailInfo
@@ -83,6 +86,8 @@ function App() {
         setInfoVisible={setInfoVisible}
         filteredCocktails={filteredCocktails}
         visualCocktail={visualCocktail}
+        counterInfo={counterInfo}
+        setCounterInfo={setCounterInfo}
       />
       {presevation ? (
         <PreservationModal

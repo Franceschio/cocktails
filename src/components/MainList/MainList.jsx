@@ -9,7 +9,7 @@ const MainList = ({
   setInfoVisible,
   searched,
   setVisualCocktail,
-  visualCocktail,
+  setCounterInfo,
 }) => {
   filteredCocktails = !searched
     ? filteredCocktails
@@ -27,6 +27,7 @@ const MainList = ({
             setInfoVisible={setInfoVisible}
             filteredCocktails={filteredCocktails}
             setVisualCocktail={setVisualCocktail}
+            setCounterInfo={setCounterInfo}
             key={cocktail.idDrink}
           />
         ))
