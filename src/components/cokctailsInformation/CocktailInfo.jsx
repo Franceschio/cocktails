@@ -1,6 +1,6 @@
 import styles from "./index.module.scss";
 import { createFilteredList } from "../../utils/Funcs&Variables/funcs&variables";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const CocktailInfo = ({
   cocktailData,

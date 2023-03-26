@@ -55,6 +55,10 @@ function App() {
     }
   }, [allPreservations]);
 
+  useEffect(() => {
+    setCounterInfo(visualCocktail);
+  }, [visualCocktail]);
+
   const filteredCocktails = cocktailsList
     .filter((cocktail) => cocktail.strAlcoholic === alcoholic)
     .filter((cocktail) => cocktail.strCategory === category);
@@ -76,7 +80,6 @@ function App() {
         setInfoVisible={setInfoVisible}
         searched={searched}
         setVisualCocktail={setVisualCocktail}
-        setCounterInfo={setCounterInfo}
       />
       <Footer />
       <CocktailInfo

@@ -7,12 +7,10 @@ const CocktailCard = ({
   setInfoVisible,
   filteredCocktails,
   setVisualCocktail,
-  setCounterInfo,
 }) => {
   const setInfo = () => {
     setCocktailInfo(filteredCocktails[filteredCocktails.indexOf(cocktailData)]);
     setInfoVisible(() => true);
-    setCounterInfo(() => filteredCocktails.indexOf(cocktailData));
     setVisualCocktail(filteredCocktails.indexOf(cocktailData));
   };
 
