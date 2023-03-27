@@ -59,7 +59,7 @@ const Navbar = ({
           <input
             className={styles.search}
             type="text"
-            placeholder={`Search in ${selectedLetter}...`}
+            placeholder={`Cerca in ${selectedLetter}...`}
             value={inputValue}
             onChange={changeInputValue}
             required

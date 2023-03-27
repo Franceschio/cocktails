@@ -11,8 +11,6 @@ import PreservationModal from "./components/PreservationModal/PreservationModal"
 import PopUp from "./components/PopUp/PopUp";
 import { useEffect, useState } from "react";
 
-//Cambiato lo stile per mostrare il search in modalità mobile (componente: navbar)
-
 function App() {
   const [cocktailsList, setCocktailsList] = useState([]);
 
