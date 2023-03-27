@@ -68,12 +68,12 @@
   }
 
   .changeCocktail {
-    position: absolute;
-    bottom: 30px;
-    left: 0px;
     width: 100%;
     background-color: $secondary-box-shadow;
     @include flex-box;
+    bottom: 0px;
+    left: 0px;
+    margin-top: 10px;
 
     .leftArrow,
     .rightArrow {
@@ -113,10 +113,9 @@
 @media screen and (min-width: 500px) {
   .CocktailInfo {
     .changeCocktail {
-      position: relative;
       left: auto;
       bottom: auto;
-      padding: 25px;
+      padding: 15px;
     }
   }
 }
