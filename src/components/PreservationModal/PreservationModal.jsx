@@ -16,7 +16,7 @@ const PreservationModal = ({
   const reserve = (e) => {
     e.preventDefault();
     const newPreservation = {
-      urname: surname.current.value,
+      surname: surname.current.value,
       date: date.current.value,
       hour: hour.current.value,
     };
@@ -34,6 +34,18 @@ const PreservationModal = ({
         `Tavolo prenotato per giorno ${date.current.value} alle ore ${hour.current.value} sotto il nome di ${surname.current.value}!`
       );
       disactivate();
+    } else if (
+      !!allPreservations.find(
+        (preservation) =>
+          preservation.surname.toLowerCase() ===
+            newPreservation.surname.toLowerCase() &&
+          preservation.date === newPreservation.date
+      )
+    ) {
+      setMsg(
+        `Ci dispiace, risulta già una prenotazione a nome ${surname.current.value} per giorno ${date.current.value}!`
+      );
+      setPreservations((prev) => [...prev]);
     } else {
       setMsg(
         `Ci dispiace, il tavolo per giorno ${date.current.value} alle ore ${hour.current.value} risulta già prenotato!`
