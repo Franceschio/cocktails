@@ -31,16 +31,16 @@
 
   .searchCont {
     position: fixed;
-    top: -100%;
-    margin-left: 15px;
+    top: -110%;
+    left: 0;
     @include flex-box;
-    width: 90vw;
-    padding: 10px;
-    border-radius: 5px;
+    width: 100%;
+    height: 100%;
     background-color: $primary-color;
     color: $secondary-color;
     font-size: 20px;
-    transition: 0.4s;
+    transition: 0.5s;
+    z-index: 2;
 
     .searchBar {
       width: 200px;
@@ -50,7 +50,7 @@
   }
 
   .searchActive {
-    top: 10%;
+    top: 0;
   }
 
   .alphabetOrder {
@@ -82,15 +82,38 @@
   }
 
   .activateSearch {
-    height: 30px;
+    height: 25px;
     width: 33.3%;
     cursor: pointer;
-    @include flex-box($justify: flex-start);
     user-select: none;
+    z-index: 2;
+    overflow: hidden;
 
-    img {
-      height: 100%;
-      width: 30px;
+    .searchActivator {
+      position: absolute;
+      left: 5px;
+      height: 25px;
+      width: 25px;
+      transition: 0.5s;
+    }
+
+    .homeActivator {
+      position: absolute;
+      left: 5px;
+      height: 25px;
+      width: 25px;
+      transform: translateY(-200%);
+      transition: 0.5s;
+    }
+
+    .activated {
+      position: relative;
+      transform: translateY(200%);
+      opacity: 0;
+    }
+
+    .disActivated {
+      transform: translateY(0px);
     }
   }
 

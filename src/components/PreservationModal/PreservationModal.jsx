@@ -71,7 +71,7 @@ const PreservationModal = ({
           <input name="hour" ref={hour} type="time" />
         </div>
 
-        <input className={styles.preserveBtn} value={"submit"} type="submit" />
+        <input className={styles.preserveBtn} value={"invia"} type="submit" />
       </form>
     </div>
   );

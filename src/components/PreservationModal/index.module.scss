@@ -95,18 +95,10 @@
     width: 25px;
     border-radius: 100%;
   }
-  to {
-    height: 60%;
-    width: 65%;
-    border-radius: 10px;
-  }
 }
 
 @keyframes inputRush {
   from {
     width: 0;
-  }
-  to {
-    width: 200px;
   }
 }

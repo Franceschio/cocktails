@@ -31,17 +31,18 @@ const Navbar = ({
   const search = (e) => {
     e.preventDefault();
     setSearched(inputValue);
+    setSearchActive(() => false);
   };
 
   const activatePreservation = () => {
     setPreservation(() => true);
   };
 
+  const setSearch = () => setSearchActive((prev) => !prev);
+
   const [inputValue, setInputValue] = useState("");
 
   const [isSearchActive, setSearchActive] = useState(false);
-
-  const setSearch = () => setSearchActive((prev) => !prev);
 
   useEffect(() => {
     inputValue === "" ? setSearched(null) : null;
@@ -87,7 +88,17 @@ const Navbar = ({
         <img
           src="https://img.icons8.com/external-kmg-design-flat-kmg-design/512/external-search-ui-essentials-kmg-design-flat-kmg-design.png"
           alt="search"
-          className={styles.searchActivator}
+          className={`${styles.searchActivator} ${
+            isSearchActive && styles.activated
+          }`}
+          onClick={setSearch}
+        />
+        <img
+          src="https://img.icons8.com/ultraviolet/512/home-page.png"
+          alt="home"
+          className={`${styles.homeActivator} ${
+            isSearchActive && styles.disActivated
+          }`}
           onClick={setSearch}
         />
       </div>
@@ -111,7 +122,7 @@ const Navbar = ({
         <input
           className={styles.search}
           type="text"
-          placeholder={`Search in ${selectedLetter}...`}
+          placeholder={`Cerca in ${selectedLetter}...`}
           value={inputValue}
           onChange={changeInputValue}
           required
