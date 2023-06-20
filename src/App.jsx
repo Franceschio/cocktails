@@ -51,7 +51,7 @@ function App() {
       setPopUp(() => true);
       setTimeout(() => {
         setPopUp(() => false);
-      }, 4000);
+      }, 6000);
     }
   }, [allPreservations]);
 
@@ -84,11 +84,10 @@ function App() {
       <Footer />
       <CocktailInfo
         cocktailData={cocktailInfo}
-        setCocktailInfo={setCocktailInfo}
+        setCocktailData={setCocktailInfo}
         infoVisible={infoVisible}
         setInfoVisible={setInfoVisible}
         filteredCocktails={filteredCocktails}
-        visualCocktail={visualCocktail}
         counterInfo={counterInfo}
         setCounterInfo={setCounterInfo}
       />

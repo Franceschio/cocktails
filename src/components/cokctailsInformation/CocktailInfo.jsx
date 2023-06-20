@@ -1,10 +1,9 @@
 import styles from "./index.module.scss";
 import { createFilteredList } from "../../utils/Funcs&Variables/funcs&variables";
-import { useEffect, useState } from "react";
 
 const CocktailInfo = ({
   cocktailData,
-  setCocktailInfo,
+  setCocktailData,
   infoVisible,
   setInfoVisible,
   filteredCocktails,
@@ -32,14 +31,14 @@ const CocktailInfo = ({
   };
 
   const setCocktailMore = () =>
-    setCocktailInfo(() =>
+    setCocktailData(() =>
       counterInfo === filteredCocktails.length - 1
         ? filteredCocktails[0]
         : filteredCocktails[counterInfo + 1]
     );
 
   const setCocktailLess = () => {
-    setCocktailInfo(() =>
+    setCocktailData(() =>
       counterInfo === 0
         ? filteredCocktails[filteredCocktails.length - 1]
         : filteredCocktails[counterInfo - 1]
@@ -78,9 +77,8 @@ const CocktailInfo = ({
         </div>
         <h3>Preparation:</h3>
         <p>
-          {cocktailData.strInstructionsIT
-            ? cocktailData.strInstructionsIT.split(".").join(". ")
-            : null}
+          {cocktailData.strInstructionsIT &&
+            cocktailData.strInstructionsIT.split(".").join(". ")}
         </p>
       </div>
       <div className={styles.changeCocktail}>

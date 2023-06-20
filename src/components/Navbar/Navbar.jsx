@@ -104,7 +104,7 @@ const Navbar = ({
       </div>
       <ul>
         <li onClick={activatePreservation}>
-          Prenota
+          Preserve
           <img
             src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/512/external-booking-bowling-alley-and-arcade-flaticons-lineal-color-flat-icons-2.png"
             alt="prenotazione"

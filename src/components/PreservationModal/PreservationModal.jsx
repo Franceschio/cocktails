@@ -28,7 +28,6 @@ const PreservationModal = ({
           preservation.hour === newPreservation.hour
       )
     ) {
-      console.log(newPreservation);
       setPreservations((prev) => [...prev, newPreservation]);
       setMsg(
         `Tavolo prenotato per giorno ${date.current.value} alle ore ${hour.current.value} sotto il nome di ${surname.current.value}!`
