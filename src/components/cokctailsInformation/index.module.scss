@@ -3,7 +3,7 @@
 
 .CocktailInfo {
   width: 105vw;
-  height: 70vh;
+  height: 80vh;
   background-color: $cases-color;
   position: fixed;
   left: 0;
@@ -22,6 +22,8 @@
 
   .infoImage {
     height: 40%;
+    box-shadow: 3px 3px 5px $secondary-box-shadow;
+    border: 1px solid $secondary-box-shadow;
     img {
       @include fit-image;
     }
